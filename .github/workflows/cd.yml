@@ -1,0 +1,18 @@
+name: CI Workflow
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy the application
+        run: echo "Deploying in ${{ inputs.environment }}"  
